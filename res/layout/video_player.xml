@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <VideoView 
+        android:id="@+id/video_view"
+        android:layout_width="224.0dip"
+        android:layout_height="288.0dip"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mmtitle_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/mm_title_btn_back"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="70.0dip"
+                android:text="@string/app_back"
+                android:textColor="@color/mm_title_btn_text" />
+
+            <View
+                android:layout_width="0.0dip"
+                android:layout_height="1.0dip"
+                android:layout_weight="1.0" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/video_recorder_mask" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mmfooter_bg"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btn_retake"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10.0dip"
+                android:background="@drawable/mm_title_btn_right"
+                android:gravity="center"
+                android:minWidth="70.0dip"
+                android:text="@string/review_retake"
+                android:textColor="@color/mm_title_btn_text"
+                android:visibility="gone" />
+
+            <com.hzflk.camera.ShutterButton
+                android:id="@+id/shutter_button"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@null"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="center"
+                android:src="@drawable/video_recorder_start_btn"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_done"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="10.0dip"
+                android:background="@drawable/mm_title_act_btn"
+                android:gravity="center"
+                android:minWidth="70.0dip"
+                android:text="@string/app_send"
+                android:textColor="@color/mm_title_btn_text"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+    
+</FrameLayout>

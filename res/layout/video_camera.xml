@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/video_camera"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/video_camera_original"
+        android:layout_width="224.0dip"
+        android:layout_height="288.0dip"
+        android:background="@null"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <com.hzflk.camera.PreviewFrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border_view_finder" >
+
+                <SurfaceView
+                    android:id="@+id/camera_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/video_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible" />
+                <!--
+                 Note: In this TextView the paddingRight="2"
+                 attribute is required because otherwise the
+                 text's drop shadow will be clipped.
+                -->
+
+                <TextView
+                    android:id="@+id/recording_time"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|bottom"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginLeft="17dp"
+                    android:drawableLeft="@drawable/ic_recording_indicator"
+                    android:drawablePadding="8dp"
+                    android:gravity="left|center_vertical"
+                    android:paddingRight="2dp"
+                    android:shadowColor="#c0000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:textColor="@color/recording_time_elapsed_text"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </com.hzflk.camera.PreviewFrameLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mmtitle_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/mm_title_btn_back"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="70.0dip"
+                android:text="@string/app_back"
+                android:textColor="@color/mm_title_btn_text" />
+
+            <View
+                android:layout_width="0.0dip"
+                android:layout_height="1.0dip"
+                android:layout_weight="1.0" />
+
+            <ImageButton
+                android:id="@+id/videorecord_camera_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/mm_title_btn_right"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="70.0dip"
+                android:src="@drawable/mm_title_btn_camera_switch"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/video_recorder_mask" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mmfooter_bg"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btn_retake"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10.0dip"
+                android:background="@drawable/mm_title_btn_right"
+                android:gravity="center"
+                android:minWidth="70.0dip"
+                android:text="@string/review_retake"
+                android:textColor="@color/mm_title_btn_text"
+                android:visibility="gone" />
+
+            <com.hzflk.camera.ShutterButton
+                android:id="@+id/shutter_button"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@null"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="center"
+                android:src="@drawable/video_recorder_start_btn" />
+
+            <Button
+                android:id="@+id/btn_done"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="10.0dip"
+                android:background="@drawable/mm_title_act_btn"
+                android:gravity="center"
+                android:minWidth="70.0dip"
+                android:text="@string/app_send"
+                android:textColor="@color/mm_title_btn_text"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <View 
+            android:id="@+id/center_view"
+            android:layout_width="224.0dip"
+            android:layout_height="288.0dip"
+            android:layout_centerInParent="true"/>
+        <TextView 
+            android:id="@+id/video_file_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/center_view"
+            android:layout_below="@id/center_view"
+            android:text="file size 650.3KB, duration 30s"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible" >
+
+        <ImageButton
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/video_play_btn"
+            android:visibility="gone" />
+    </LinearLayout>
+    
+    
+
+</FrameLayout>
